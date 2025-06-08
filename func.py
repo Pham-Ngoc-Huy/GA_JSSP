@@ -1,6 +1,6 @@
-import pandas as pd
 import numpy as np
 from src.data import *
+import random
 
 class GeneticAlgorithm:
     def __init__(self, 
@@ -10,7 +10,9 @@ class GeneticAlgorithm:
                     n: int, 
                     m: int, 
                     Q: np.ndarray, 
-                    Tp: np.ndarray):
+                    machine_matrix: np.ndarray,
+                    number_of_assemblies: int):
+        self.machine_matrix = machine_matrix
         self.n_population = n_population
         self.iteration = interation
         self.n_elitism = n_elitism
@@ -27,20 +29,45 @@ class GeneticAlgorithm:
         self.O = np.arange(1, self.MaxOps + 1)
         # Processing time of operation 𝑗 of part 𝑝 on machine 𝑘
         self.Tp = Tp
-    def initialization(self):
-        pop = []
-        for i in range(1, n_population + 1):
-            machine_init = np.random.permutation(np.arange(1, (MaxOps * m) + 1))
-            part_init = np.random.permutation(np.arange(1, n + 1))
-            assembly_init = np.random.permutation(np.arange(1, n + 1))
-            init = np.concatenate((machine_init, part_init, assembly_init), axis=0)
-            
-            pop.append(init)
-        return pop
-
-    def decode_schedule(self,individual):
-        machine_schedule = individual[:self.MaxOps * self.m].reshape((self.m, self.MaxOps))
-        part_schedule = individual[self.MaxOps * self.m:self.MaxOps * self.m + self.n]
-        assembly_schedule = individual[self.MaxOps * self.m + self.n:]
+        # number of assemblies
+        self.num_assemblies = number_of_assemblies
         
-        return machine_schedule, part_schedule, assembly_schedule
+    def generate_feasible_chromosome(self):
+        part_seq = random.sample(range(1, self.n + 1), self.n)
+        machine_seq = []
+        for p in part_seq:
+            for o in range(self.Qp[p-1]):
+                valid_machine = self.machine_matrix[p-1][o]
+                machine_seq.append(valid_machine)
+        assembly_seq = random.sample(range(1, self.num_assemblies + 1), self.num_assemblies)
+        return {
+            "part_seq": part_seq,
+            "machine_seq": machine_seq,
+            "assembly_seq": assembly_seq
+        }
+        
+    def decode_chromosome(self, chromosome):
+        part_seq = chromosome["part_seq"]
+        machine_seq = chromosome["machine_seq"]
+
+        schedule = []
+        op_counter = {p: 0 for p in part_seq}  # track which op we're on for each part
+        machine_index = 0
+
+        for p in part_seq:
+            for o in range(1, self.Qp[p - 1] + 1):
+                if machine_index >= len(machine_seq):
+                    return None  # malformed chromosome
+                assigned_machine = machine_seq[machine_index]
+                schedule.append((p, o, assigned_machine))
+                machine_index += 1
+
+        return schedule
+
+    def check_feasibility(self,schedule):
+        for (p, o, m) in schedule:
+            valid_machine = self.machine_matrix[p - 1][o - 1]
+            if m != valid_machine:
+                return False
+        return True
+    
