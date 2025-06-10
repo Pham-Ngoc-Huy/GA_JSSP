@@ -1,25 +1,25 @@
 // Sample Data
 
-int n = 3;  // 3 parts
-range Parts = 1..n;
-//int m = 3;  // 3 machines
-//range Machines = 1..m;
+int n = 3;  // 3 rangeN
+range rangeN = 1..n;
+//int m = 3;  // 3 rangeM
+//range rangeM = 1..m;
 int a = 1; // number of assembly tasks
-range Assemblies = 1..a;
-float asmTime[Assemblies] = [5.0]; // processing time for each assembly task
+range rangeA = 1..a;
+float asmTime[rangeA] = [5.0]; // processing time for each assembly task
 
-int dependsOn[Assemblies][Parts] = [[1,1,1]]; // =1 if part p is required for assembly a
-int Qp[Parts] = [3, 2, 3];  // Number of operations per part
+int depend[rangeA][rangeN] = [[1,1,1]]; // =1 if part i is required for assembly a
+int qp[rangeN] = [3, 2, 3];  // Number of operations per part
 
-int MaxOps = 3;
-range Ops = 1..MaxOps;
-int machine[Parts][Ops] = 
+int maxops = 3; //Max operation of Qp[rangeN]
+range rangeO = 1..maxops;
+int machine[rangeN][rangeO] = 
 [[1, 2, 3],   // Part 1 operations: op1 on machine 1, op2 on machine 2, op3 on machine 3
  [3, 2, 0],   // Part 2 operations: op1 on machine 2, op2 on machine 3, no op3 (0)
  [3, 1, 2]    // Part 3 operations: op1 on machine 3, op2 on machine 1, op3 on machine 2
  ];
 
-float procTime[Parts][Ops] = 
+float procTime[rangeN][rangeO] = 
 [
   [3.0, 2.0, 2.0],  // Part 1 op times
   [2.0, 4.0, 0.0],  // Part 2 op times
@@ -32,16 +32,16 @@ float M = 100000;
 
 // --- Decision variables ---
 
-dvar float+ S[Parts][Ops];       // Start time of operation o of part p
+dvar float+ S[rangeN][rangeO];       // Start time of operation o of part i
 dvar float+ Cmax;                // Makespan
-dvar float+ C[Parts][Ops];		// Completion time of operation o of part p
-dvar float+ Cpart[Parts];		// Completion time of part p
-dvar float+ Sa[Assemblies];   // Start time of assembly task a
-dvar float+ Ca[Assemblies];   // Completion time of assembly task a
-dvar float+ Inventory[Assemblies][Parts]; // Time part p waits before assembly a
+dvar float+ C[rangeN][rangeO];		// Completion time of operation o of part i
+dvar float+ Cpart[rangeN];		// Completion time of part i
+dvar float+ Sa[rangeA];   // Start time of assembly task a
+dvar float+ Ca[rangeA];   // Completion time of assembly task a
+dvar float+ Inventory[rangeA][rangeN]; // Time part i waits before assembly a
 
 // Binary variable for ordering two operations on the same machine
-dvar boolean x[Parts][Ops][Parts][Ops];
+dvar boolean x[rangeN][rangeO][rangeN][rangeO];
 // --- Objective ---
 minimize Cmax;
 
@@ -50,48 +50,48 @@ minimize Cmax;
 subject to {
 
   // 1. Define makespan
-  forall(p in Parts)
+  forall(i in rangeN)
     Cmax >= Ca[a];
 
   // 2. Operations order within each part
-  forall(p in Parts, o in 1..Qp[p]-1)
-    S[p][o+1] >= S[p][o] + procTime[p][o];
+  forall(i in rangeN, o in 1..qp[i]-1)
+    S[i][o+1] >= S[i][o] + procTime[i][o];
 
   // 3. No overlap on the same machine
   // For each pair of distinct operations on the same machine, enforce sequencing constraints
-  forall(p1 in Parts, o1 in 1..Qp[p1],
-         p2 in Parts, o2 in 1..Qp[p2] : (p1 != p2 || o1 != o2) && 
-                                        machine[p1][o1] == machine[p2][o2] && machine[p1][o1] > 0 && machine[p2][o2] > 0) {
+  forall(i in rangeN, k in 1..qp[i],
+         j in rangeN, l in 1..qp[j] : (i != j || k != l) && 
+                                        machine[i][k] == machine[j][l] && machine[i][k] > 0 && machine[j][l] > 0) {
     // only impose once per unordered pair
-    if (p1 < p2 || (p1 == p2 && o1 < o2)) {
-      S[p1][o1] >= S[p2][o2] + procTime[p2][o2] - M * (1 - x[p1][o1][p2][o2]);
-      S[p2][o2] >= S[p1][o1] + procTime[p1][o1] - M * x[p1][o1][p2][o2];
-      x[p1][o1][p2][o2] + x[p2][o2][p1][o1] == 1;
+    if (i < j || (i == j && k < l)) {
+      S[i][k] >= S[j][l] + procTime[j][l] - M * (1 - x[i][k][j][l]);
+      S[j][l] >= S[i][k] + procTime[i][k] - M * x[i][k][j][l];
+      x[i][k][j][l] + x[j][l][i][k] == 1;
       
     }
   }
   
   // Define completion time for each operation
-  forall(p in Parts, o in 1..Qp[p]){
-  	C[p][o] == S[p][o] + procTime[p][o];  
+  forall(i in rangeN, o in 1..qp[i]){
+  	C[i][o] == S[i][o] + procTime[i][o];  
   }
   
-  // Completion time of part p is completion time of its last operation
-  forall(p in Parts){
-  	Cpart[p] == C[p][Qp[p]];  
+  // Completion time of part i is completion time of its last operation
+  forall(i in rangeN){
+  	Cpart[i] == C[i][qp[i]];  
   }
   
-  // Assembly starts after all required parts are completed
-  forall(a in Assemblies, p in Parts: dependsOn[a][p] == 1)
-  Sa[a] >= Cpart[p];
+  // Assembly starts after all required rangeN are completed
+  forall(a in rangeA, i in rangeN: depend[a][i] == 1)
+  Sa[a] >= Cpart[i];
   
   // Assembly completion time
-  forall(a in Assemblies)
+  forall(a in rangeA)
   Ca[a] == Sa[a] + asmTime[a];
   
   // Inventory Time (the time wait until the assembly task a start)
-  forall(a in Assemblies, p in Parts: dependsOn[a][p] == 1)
-  Inventory[a][p] == Sa[a] - Cpart[p];
+  forall(a in rangeA, i in rangeN: depend[a][i] == 1)
+  Inventory[a][i] == Sa[a] - Cpart[i];
 }
 
 
@@ -149,7 +149,7 @@ Inventory = [[3 2 0]];
 
 ## 🔹 Makespan
 - `Cmax = 14`  
-  → Total time to complete all operations and assemblies.
+  → Total time to complete all operations and rangeA.
 
 ---
 
@@ -161,7 +161,7 @@ Inventory = [[3 2 0]];
 
 ---
 
-## 🔹 Start Times of Operations (S[p][o])
+## 🔹 Start Times of Operations (S[i][o])
 | Part | Operation 1 | Operation 2 | Operation 3 |
 |------|-------------|-------------|-------------|
 | 1    | 0           | 3           | 7           |
@@ -170,7 +170,7 @@ Inventory = [[3 2 0]];
 
 ---
 
-## 🔹 Completion Times of Operations (C[p][o])
+## 🔹 Completion Times of Operations (C[i][o])
 | Part | Operation 1 | Operation 2 | Operation 3 |
 |------|-------------|-------------|-------------|
 | 1    | 3.0         | 5.0         | 9.0         |
@@ -179,7 +179,7 @@ Inventory = [[3 2 0]];
 
 ---
 
-## 🔹 Completion Time of Each Part (Cpart[p])
+## 🔹 Completion Time of Each Part (Cpart[i])
 | Part | Completion Time |
 |------|-----------------|
 | 1    | 9.0             |
@@ -199,11 +199,11 @@ Inventory = [[3 2 0]];
 
 ---
 
-## 🔹 Operation Precedence on Same Machine (x[p1][o1][p2][o2] = 1)
+## 🔹 Operation Precedence on Same Machine (x[i][k][j][l] = 1)
 
-Below are selected values of `x[p1][o1][p2][o2] = 1`, meaning operation `(p1,o1)` was **scheduled before** `(p2,o2)` on the **same machine**:
+Below are selected values of `x[i][k][j][l] = 1`, meaning operation `(i,k)` was **scheduled before** `(j,l)` on the **same machine**:
 
-| Predecessor (p,o) | Successor (p,o) | Machine |
+| Predecessor (i,o) | Successor (i,o) | Machine |
 |-------------------|------------------|---------|
 | (2,1)             | (1,2)            | 2       |
 | (1,2)             | (3,3)            | 2       |
@@ -217,6 +217,6 @@ Below are selected values of `x[p1][o1][p2][o2] = 1`, meaning operation `(p1,o1)
 
 ## 🧠 Insights
 
-- The **inventory time** highlights how early-completed parts may incur waiting cost.
+- The **inventory time** highlights how early-completed rangeN may incur waiting cost.
 - The `x` variables help enforce safe sequencing of operations using the same resource.
 - No resource conflict was found — this validates your constraints are functioning properly
