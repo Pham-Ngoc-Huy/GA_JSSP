@@ -106,10 +106,15 @@ class GeneticAlgorithm:
 
     def generate_initial_population(self):
         population = []
+        op_seq = []
         for _ in range(self.pop_size):
-            op_seq = [(i, o) for i in range(self.num_parts) for o in range(self.qp[i])]
+            for i in range(self.num_parts):
+                for o in range(self.qp[i]):
+                    op_seq.append((i, o))
             random.shuffle(op_seq)
+
             asm_prio = list(range(self.num_assemblies))
+            
             random.shuffle(asm_prio)
             population.append(Chromosome(op_seq, asm_prio))
         return population
@@ -137,7 +142,7 @@ class GeneticAlgorithm:
 
         for gen in range(self.generations):
             scored = [(chrom, self.schedule.simulate_schedule(chrom)) for chrom in population]
-            scored.sort(key=lambda x: x[1]["Cmax"])  # Sort by makespan (Cmax)
+            scored.sort(key=lambda x: x[1]["Cmax"])
 
             elites = [chrom for chrom, _ in scored[:self.elite_size]]
 
