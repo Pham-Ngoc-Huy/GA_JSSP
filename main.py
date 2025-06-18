@@ -1,4 +1,4 @@
-from src.data import *
+from src.data_3 import *
 from processing import GeneticAlgorithm
 
 def main():

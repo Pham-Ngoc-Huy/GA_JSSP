@@ -60,7 +60,7 @@ subject to {
   // 3. No overlap on the same machine
   // For each pair of distinct operations on the same machine, enforce sequencing constraints
   forall(i in rangeN, k in 1..qp[i],
-         j in rangeN, l in 1..qp[j] : (i != j || k != l) && 
+         j in rangeN, l in 1..qp[j] : (i != j || k != l) && i < j || (i == j && k < l) &&
                                         machine[i][k] == machine[j][l] && machine[i][k] > 0 && machine[j][l] > 0) {
     // only impose once per unordered pair
     if (i < j || (i == j && k < l)) {

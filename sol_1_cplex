@@ -1,0 +1,48 @@
+// solution (optimal) with objective 16
+// Quality Incumbent solution:
+// MILP objective                                 1.6000000000e+01
+// MILP solution norm |x| (Total, Max)            1.67000e+02  1.60000e+01
+// MILP solution error (Ax=b) (Total, Max)        0.00000e+00  0.00000e+00
+// MILP x bound error (Total, Max)                0.00000e+00  0.00000e+00
+// MILP x integrality error (Total, Max)          0.00000e+00  0.00000e+00
+// MILP slack bound error (Total, Max)            0.00000e+00  0.00000e+00
+// 
+
+Cmax = 16;
+Ca = [16];
+S = [[0 3 6]
+             [0 5 0]
+             [2 6 9]];
+x = [[[[0 0 0]
+                     [0 0 0]
+                     [0 0 0]]
+                 [[0 0 0]
+                     [0 0 0]
+                     [0 0 0]]
+                 [[0 0 0]
+                     [1 0 0]
+                     [1 0 0]]]
+             [[[0 0 0]
+                     [0 0 0]
+                     [0 0 0]]
+                 [[0 1 0]
+                     [0 0 0]
+                     [0 0 0]]
+                 [[0 0 0]
+                     [0 0 0]
+                     [0 0 0]]]
+             [[[0 0 0]
+                     [1 0 0]
+                     [0 0 0]]
+                 [[1 0 0]
+                     [0 0 0]
+                     [0 0 0]]
+                 [[0 1 0]
+                     [0 1 0]
+                     [0 0 0]]]];
+C = [[3 5 8]
+             [2 9 0]
+             [6 9 11]];
+Cpart = [8 9 11];
+Sa = [11];
+Inventory = [[3 2 0]];
