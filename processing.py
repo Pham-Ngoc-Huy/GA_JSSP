@@ -11,7 +11,7 @@ class Schedule:
         self.proc_time = proc_time
         self.asm_time = asm_time
 
-    def simulate_schedule(self, chromosome):
+    def _simulate(self, chromosome):
         scheduled_ops = []
         op_sequence = chromosome.operation_sequence
         asm_priority = chromosome.assembly_priority
@@ -21,17 +21,21 @@ class Schedule:
         op_end = [[-1.0] * self.qp[i] for i in range(self.num_parts)]
 
         remaining_ops = {(i, o): True for i in range(self.num_parts) for o in range(self.qp[i])}
-        
-        while remaining_ops:
+        attempts = 0
+        max_attempts = len(op_sequence) * 10
+
+        while remaining_ops and attempts < max_attempts:
+            progress = False
             for (i, o) in op_sequence:
                 if (i, o) not in remaining_ops:
                     continue
                 if o > 0 and op_end[i][o - 1] < 0:
-                    continue  # Wait for previous op to finish
+                    continue
 
                 m_id = self.machine[i][o]
                 if m_id == 0:
                     del remaining_ops[(i, o)]
+                    progress = True
                     continue
                 p_time = self.proc_time[i][o]
                 earliest_start = 0.0
@@ -45,7 +49,16 @@ class Schedule:
                 machine_ready[m_id - 1] = end
                 del remaining_ops[(i, o)]
                 scheduled_ops.append((i, o))
+                progress = True
                 break
+            if not progress:
+                break
+            attempts += 1
+
+        feasible = (len(remaining_ops) == 0)
+
+        if not feasible:
+            return {"feasible": False}
 
         part_done = [op_end[i][self.qp[i] - 1] for i in range(self.num_parts)]
         asm_start = [0.0 for _ in range(self.num_assemblies)]
@@ -64,13 +77,26 @@ class Schedule:
         Cmax = max(asm_end)
 
         return {
+            "feasible": True,
             "Cmax": Cmax,
             "op_start": op_start,
             "op_end": op_end,
             "asm_start": asm_start,
             "asm_end": asm_end,
-            "inventory_time": inventory_time
+            "inventory_time": inventory_time,
+            "assembly_sequence": asm_priority,
+            "executed_sequence": scheduled_ops
         }
+
+    def is_feasible(self, chromosome):
+        result = self._simulate(chromosome)
+        return result["feasible"]
+
+    def evaluate_fitness(self, chromosome):
+        result = self._simulate(chromosome)
+        if not result["feasible"]:
+            return float("inf"), {}
+        return result["Cmax"], result
 
 
 class Chromosome:
@@ -106,15 +132,14 @@ class GeneticAlgorithm:
 
     def generate_initial_population(self):
         population = []
-        op_seq = []
         for _ in range(self.pop_size):
+            op_seq = []
             for i in range(self.num_parts):
                 for o in range(self.qp[i]):
                     op_seq.append((i, o))
             random.shuffle(op_seq)
 
             asm_prio = list(range(self.num_assemblies))
-            
             random.shuffle(asm_prio)
             population.append(Chromosome(op_seq, asm_prio))
         return population
@@ -141,16 +166,21 @@ class GeneticAlgorithm:
         best_solution = None
 
         for gen in range(self.generations):
-            scored = [(chrom, self.schedule.simulate_schedule(chrom)) for chrom in population]
-            scored.sort(key=lambda x: x[1]["Cmax"])
+            scored = []
+            for chrom in population:
+                if self.schedule.is_feasible(chrom):
+                    fitness, details = self.schedule.evaluate_fitness(chrom)
+                else:
+                    fitness, details = float("inf"), {}
+                scored.append((chrom, fitness, details))
 
-            elites = [chrom for chrom, _ in scored[:self.elite_size]]
+            scored.sort(key=lambda x: x[1])
+            elites = [chrom for chrom, _, _ in scored[:self.elite_size]]
 
-            details = scored[0][1]
-            if details["Cmax"] < best_makespan:
-                best_makespan = details["Cmax"]
+            if scored[0][1] < best_makespan:
+                best_makespan = scored[0][1]
                 best_solution = scored[0][0]
-                best_solution.details = details
+                best_solution.details = scored[0][2]
 
             new_population = elites[:]
             while len(new_population) < self.pop_size:
@@ -161,7 +191,6 @@ class GeneticAlgorithm:
                     new_population.append(c2.mutate(self.mutation_rate))
 
             population = new_population
-            print(f"Generation {gen+1}: Best Makespan = {details['Cmax']:.2f}")
+            print(f"Generation {gen+1}: Best Makespan = {scored[0][1]:.2f}")
 
         return best_solution, best_makespan
-

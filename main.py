@@ -17,8 +17,8 @@ def main():
     )
     best_solution, best_makespan = algorithm.genetic_algorithm()
     print("\n--- Best solution found ---")
-    print("Operation Sequence:", best_solution.operation_sequence)
-    print("Assembly Priority:", best_solution.assembly_priority)
+    print("Operation Sequence:", best_solution.details["executed_sequence"])
+    print("Assembly Priority:", best_solution.details["assembly_sequence"])
     print(f"Best Makespan (Cmax): {best_makespan:.2f}\n")
 
     details = best_solution.details
