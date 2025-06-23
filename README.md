@@ -182,8 +182,68 @@ Elitism ensures that the best solutions from the current generation are retained
 
 By combining these genetic operators, the algorithm seeks to evolve the population toward the optimal solution while balancing exploration and exploitation. The iterative process of selection, crossover, mutation, and elitism allows the algorithm to progressively improve the scheduling solution.
 
+---
+# Validation
+
+**Scalable_1**:
+>3 parts - 3 operations - 3 machines - 1 assembly task
+
+This scalable stands for the Base Case - which is the simpliest one
+
+
+**Schedule_in_exact_solution**
+
+**Schedule_in_algorithm**
+
+
+| **Objective**                    | **Exact Solution** | **Genetics Algorithm** |
+| ------------------------------- | ------------------ | ----------------------|
+| **Makespan**                   | 21.5                 | 21.5           |
+| **Time elapsed**              | 0.41 seconds             | 0.426641 seconds|
+|**Scalable**| 5 parts, 4 operations, 3 machines, 3 assembly tasks| 5 parts, 4 operations, 3 machines, 3 assembly tasks
+
+
+**Scalable_2**: 
+>5 parts - 4 operations - 3 machines - 3 assembly tasks
+
+This scalable stands for more complicate that i increase the the number of parts, operations, and tasks.
+
+**Schedule_in_exact_solution**
+
+**Schedule_in_algorithm**
+
+
+| **Objective**                    | **Exact Solution** | **Genetics Algorithm** |
+| ------------------------------- | ------------------ | ----------------------|
+| **Makespan**                   | 21.5                 | 21.5           |
+| **Time elapsed**              | 0.41 seconds             | 0.426641 seconds|
+|**Scalable**| 5 parts, 4 operations, 3 machines, 3 assembly tasks| 5 parts, 4 operations, 3 machines, 3 assembly tasks
+
+
+Schedule
+
+**Scalable_3**: 
+>4 parts - 3 operations - 3 machines - 2 assembly tasks
+
+This scalable stands for varying operations and processing times
+
+**Schedule_in_exact_solution**
+
+**Schedule_in_algorithm**
+
+
+| **Objective**                    | **Exact Solution** | **Genetics Algorithm** |
+| ------------------------------- | ------------------ | ----------------------|
+| **Makespan**                   | 21.5                 | 21.5           |
+| **Time elapsed**              | 0.41 seconds             | 0.426641 seconds|
+|**Scalable**| 4 parts, 3 operations, 3 machines, 2 assembly tasks| 4 parts, 3 operations, 3 machines, 2 assembly tasks
+
+
+
+Through 3 scales of calculations, we can say that the genetic algorithms in the Job Shop Schedule Planning and Assembly Schedule Planning is realiable.
+
+So we can continue using this algorith to adapt larger scale in calculation where the exact solution take too much time to explore the optimal ones, with the algorithm, we can get near to the optimal solution.
+
 
 ---
-
-# Result Validation 
 

@@ -1,7 +1,9 @@
 from src.data_3 import *
 from processing import GeneticAlgorithm
+import time
 
 def main():
+    start_time = time.perf_counter()
     algorithm = GeneticAlgorithm(
         num_parts=num_parts,
         qp=qp,
@@ -39,6 +41,9 @@ def main():
     for a in range(num_assemblies):
         print(f"Assembly {a}: Start = {asm_start[a]:.2f}, End = {asm_end[a]:.2f}")
 
-
+    end_time = time.perf_counter()
+    elapsed_time = end_time - start_time
+    
+    print(f"Elapsed time for calculation: {elapsed_time:.6f} seconds")
 if __name__ == "__main__":
     main()

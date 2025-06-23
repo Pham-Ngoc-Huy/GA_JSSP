@@ -1,6 +1,5 @@
 import random
 import copy
-
 class Schedule:
     def __init__(self, num_parts, qp, num_assemblies, depend, machine, proc_time, asm_time):
         self.num_parts = num_parts
