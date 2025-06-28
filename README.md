@@ -193,14 +193,50 @@ This scalable stands for the Base Case - which is the simpliest one
 
 **Schedule_in_exact_solution**
 
+**Job_Shop_Schedule**:
+|**Part**|**Operation**|**Start**|**End**|**Machine**|
+| ---- |-----------|-------|-----|-------|
+|1     |1          |0.00   |3.00 |1|
+|1     |2          |3.00   |5.00 |2|
+|1     |3          |6.00   |8.00 |3|
+|2     |1          |0.00   |2.00 |3|
+|2     |2          |5.00   |9.00 |2|
+|3     |1          |2.00   |6.00 |3|
+|3     |2          |6.00   |9.00 |1|
+|3     |3          |9.00   |11.00|2|
+
+**Assembly**:
+|**Assembly**|**Start**|**End**|
+|------------|---------|-------|
+|1|11.00|16.00|
+
+
 **Schedule_in_algorithm**
+
+**Job_Shop_Schedule**:
+|**Part**|**Operation**|**Start**|**End**|**Machine**|
+| ---- |-----------|-------|-----|-------|
+|1     |1          |0.00   |3.00 |1|
+|1     |2          |3.00   |5.00 |2|
+|1     |3          |6.00   |8.00 |3|
+|2     |1          |0.00   |2.00 |3|
+|2     |2          |5.00   |9.00 |2|
+|3     |1          |2.00   |6.00 |3|
+|3     |2          |6.00   |9.00 |1|
+|3     |3          |9.00   |11.00|2|
+
+**Assembly**:
+|**Assembly**|**Start**|**End**|
+|------------|---------|-------|
+|1|11.00|16.00|
+
 
 
 | **Objective**                    | **Exact Solution** | **Genetics Algorithm** |
 | ------------------------------- | ------------------ | ----------------------|
-| **Makespan**                   | 21.5                 | 21.5           |
-| **Time elapsed**              | 0.41 seconds             | 0.426641 seconds|
-|**Scalable**| 5 parts, 4 operations, 3 machines, 3 assembly tasks| 5 parts, 4 operations, 3 machines, 3 assembly tasks
+| **Makespan**                   | 16                 | 16           |
+| **Time elapsed**              | 0.12 seconds             | 0.37 seconds|
+|**Scalable**| 3 parts, 3 operations, 3 machines, 1 assembly tasks| 3 parts, 3 operations, 3 machines, 1 assembly tasks
 
 
 **Scalable_2**: 
@@ -210,13 +246,68 @@ This scalable stands for more complicate that i increase the the number of parts
 
 **Schedule_in_exact_solution**
 
+**Job_Shop_Schedule**:
+|**Part**|**Operation**|**Start**|**End**|**Machine**|
+| ---- |-----------|-------|-----|-------|
+|1     | 1         | 0.00  |3.00 |1|
+|1     | 2         | 3.00  |8.00|4|
+|2     | 1         | 0.00  |2.00 |2|
+|2     | 2         | 10.00 |14.00|3|
+|2     | 3         | 15.50 |16.50|1|
+|3     | 1         | 0.00  |4.00 |3|
+|3     | 2         | 4.00  |7.00 |1|
+|3     | 3         | 7.00  |9.00 |2|
+|3     | 4         | 9.00 |13.00|4|
+|4     | 1         | 7.00  |12.00 |4|
+|4     | 2         | 14.00 |17.50|3|
+|5     | 1         | 4.00  |10.00|3|
+|5     | 2         | 10.00 |12.50|2|
+|5     | 3         | 12.50 |15.50|1|
+
+**Assembly**:
+|**Assembly**|**Start**|**End**|
+|------------|---------|-------|
+|1|17.50|23.50|
+|2|19.00|23.50|
+|3|16.50|23.50|
+
+
+
+
 **Schedule_in_algorithm**
+
+**Job_Shop_Schedule**:
+|**Part**|**Operation**|**Start**|**End**|**Machine**|
+| ---- |-----------|-------|-----|-------|
+|1     | 1         | 0.00  |3.00 |1|
+|1     | 2         | 5.00  |10.00|4|
+|2     | 1         | 0.00  |2.00 |2|
+|2     | 2         | 10.00 |14.00|3|
+|2     | 3         | 15.50 |16.50|1|
+|3     | 1         | 0.00  |4.00 |3|
+|3     | 2         | 4.00  |7.00 |1|
+|3     | 3         | 7.00  |9.00 |2|
+|3     | 4         | 10.00 |14.00|4|
+|4     | 1         | 0.00  |5.00 |4|
+|4     | 2         | 14.00 |17.50|3|
+|5     | 1         | 4.00  |10.00|3|
+|5     | 2         | 10.00 |12.50|2|
+|5     | 3         | 12.50 |15.50|1|
+
+**Assembly**:
+|**Assembly**|**Start**|**End**|
+|------------|---------|-------|
+|1|17.50|23.50|
+|2|16.50|21.00|
+|3|15.50|22.50|
+
+
 
 
 | **Objective**                    | **Exact Solution** | **Genetics Algorithm** |
 | ------------------------------- | ------------------ | ----------------------|
-| **Makespan**                   | 21.5                 | 21.5           |
-| **Time elapsed**              | 0.41 seconds             | 0.426641 seconds|
+| **Makespan**                   | 23.5                 | 23.5           |
+| **Time elapsed**              | 0.19 seconds             | 0.34 seconds|
 |**Scalable**| 5 parts, 4 operations, 3 machines, 3 assembly tasks| 5 parts, 4 operations, 3 machines, 3 assembly tasks
 
 
@@ -228,8 +319,46 @@ Schedule
 This scalable stands for varying operations and processing times
 
 **Schedule_in_exact_solution**
+**Job_Shop_Schedule**:
+|**Part**|**Operation**|**Start**|**End**|**Machine**|
+| ---- |-----------|-------|-----|-------|
+|1     |1          |0.00   |5.00 |1|
+|1     |2          |6.00   |9.00 |2|
+|1     |3          |11.00   |13.50 |3|
+|2     |1          |0.00   |4.50 |2|
+|2     |2          |4.50   |6.50 |3|
+|3     |1          |0.00   |3.00 |3|
+|3     |2          |5.00   |9.00 |1|
+|3     |3          |9.00   |12.50|2|
+|4     |1          |9.00   |16.00|1|
+
+**Assembly**:
+|**Assembly**|**Start**|**End**|
+|------------|---------|-------|
+|1|13.50|21.50|
+|2|16.00|21.50|
+|
+
 
 **Schedule_in_algorithm**
+**Job_Shop_Schedule**:
+|**Part**|**Operation**|**Start**|**End**|**Machine**|
+| ---- |-----------|-------|-----|-------|
+|1     |1          |0.00   |5.00 |1|
+|1     |2          |5.00   |8.00 |2|
+|1     |3          |8.00   |10.50 |3|
+|2     |1          |0.00   |4.50 |2|
+|2     |2          |10.50   |12.50 |3|
+|3     |1          |0.00   |3.00 |3|
+|3     |2          |5.00   |9.00 |1|
+|3     |3          |9.00   |12.00|2|
+|4     |1          |9.00   |16.00|1|
+
+**Assembly**:
+|**Assembly**|**Start**|**End**|
+|------------|---------|-------|
+|1|12.50|20.50|
+|2|16.00|21.50|
 
 
 | **Objective**                    | **Exact Solution** | **Genetics Algorithm** |
@@ -239,11 +368,12 @@ This scalable stands for varying operations and processing times
 |**Scalable**| 4 parts, 3 operations, 3 machines, 2 assembly tasks| 4 parts, 3 operations, 3 machines, 2 assembly tasks
 
 
+**CONCLUSION**
 
-Through 3 scales of calculations, we can say that the genetic algorithms in the Job Shop Schedule Planning and Assembly Schedule Planning is realiable.
+Both the exact solution and the genetic algorithm (GA) can generate feasible schedules for Job Shop Scheduling and Assembly Scheduling. Through three different scales of calculations, we have shown that the GA is reliable. While the makespan remains consistent across both methods, the time schedule may vary slightly due to the heuristic nature of the GA, which uses approximation rather than exhaustive search.
 
-So we can continue using this algorith to adapt larger scale in calculation where the exact solution take too much time to explore the optimal ones, with the algorithm, we can get near to the optimal solution.
+The GA guarantees feasibility by ensuring all constraints are met, such as preventing machine conflicts, maintaining operation order, and ensuring assembly tasks start only after all operations are completed. Thus, the GA does not compromise feasibility.
 
+In conclusion, while the exact solution offers deterministic results, the GA provides an efficient and scalable alternative, especially for larger problem sizes, reducing computation time while still producing valid and near-optimal schedules.
 
----
 

@@ -1,4 +1,4 @@
-from src.data_3 import *
+from src.large_scale import *
 from processing import GeneticAlgorithm
 import time
 
@@ -6,12 +6,12 @@ def main():
     start_time = time.perf_counter()
     algorithm = GeneticAlgorithm(
         num_parts=num_parts,
-        qp=qp,
+        qp=qp[0],
         num_assemblies=num_assemblies,
         depend=depend,
         machine=machine,
         proc_time=proc_time,
-        asm_time=asm_time,
+        asm_time=asm_time[0],
         generations=generations,
         pop_size=pop_size,
         elite_size=elite_size,
@@ -32,7 +32,7 @@ def main():
 
     print("=== Part Processing Times ===")
     for i in range(num_parts):
-        for o in range(qp[i]):
+        for o in range(qp[0][i]):
             print(f"Part {i} - Op {o}: Start = {op_start[i][o]:.2f}, End = {op_end[i][o]:.2f}")
         print(f"  Last operation ends at: {op_end[i][qp[i]-1]:.2f}")
         print(f"  Inventory time before assembly: {inventory_time[i]:.2f}\n")

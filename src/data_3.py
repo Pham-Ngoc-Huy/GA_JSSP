@@ -21,7 +21,7 @@ proc_time = [
 asm_time = [8.0, 5.5]  # Assembly task times
 
 # Genetic algorithm parameters
-generations = 100
-pop_size = 100
-elite_size = 20
-mutation_rate = 0.1
+generations = 1000
+pop_size = 10
+elite_size = 3
+mutation_rate = 0.2
