@@ -1,5 +1,19 @@
 import random
 import copy
+import logging
+# import itertools import count
+import matplotlib.pyplot as plt
+# from itertools import count
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+
+plt.style.use('fivethirtyeight')
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.getLogger().setLevel(logging.INFO)
+logger = logging.getLogger(__name__)
 
 class Schedule:
     def __init__(self, num_parts, qp, num_assemblies, depend, machine, proc_time, asm_time):
@@ -103,6 +117,8 @@ class Chromosome:
     def __init__(self, operation_sequence, assembly_priority):
         self.operation_sequence = operation_sequence
         self.assembly_priority = assembly_priority
+        self.fitness = None
+        self.details = None
 
     def mutate(self, mutation_rate):
         new_chrom = copy.deepcopy(self)
@@ -112,11 +128,14 @@ class Chromosome:
         if len(new_chrom.assembly_priority) > 1 and random.random() < mutation_rate:
             i, j = random.sample(range(len(new_chrom.assembly_priority)), 2)
             new_chrom.assembly_priority[i], new_chrom.assembly_priority[j] = new_chrom.assembly_priority[j], new_chrom.assembly_priority[i]
+        # Reset fitness after mutation
+        new_chrom.fitness = None
+        new_chrom.details = None
         return new_chrom
 
 
 class GeneticAlgorithm:
-    def __init__(self, num_parts, qp, num_assemblies, depend, machine, proc_time, asm_time, generations, pop_size, elite_size, mutation_rate):
+    def __init__(self, num_parts, qp, num_assemblies, depend, machine, proc_time, asm_time, generations, pop_size, elite_size, mutation_rate, children_size):
         self.num_parts = num_parts
         self.qp = qp
         self.num_assemblies = num_assemblies
@@ -128,81 +147,149 @@ class GeneticAlgorithm:
         self.pop_size = pop_size
         self.elite_size = elite_size
         self.mutation_rate = mutation_rate
+        self.children_size = children_size
         self.schedule = Schedule(num_parts, qp, num_assemblies, depend, machine, proc_time, asm_time)
 
     def generate_initial_population(self):
         population = []
-        for _ in range(self.pop_size):
+        
+        while len(population) < self.pop_size:
             op_seq = []
+            asm_prio = []
             for i in range(self.num_parts):
                 for o in range(self.qp[i]):
                     op_seq.append((i, o))
-            random.shuffle(op_seq)
-
+            random.shuffle(op_seq)  
             asm_prio = list(range(self.num_assemblies))
-            random.shuffle(asm_prio)
-            population.append(Chromosome(op_seq, asm_prio))
+            random.shuffle(asm_prio) 
+            new_chromosome = Chromosome(op_seq, asm_prio)
+            if new_chromosome not in population:
+                if self.schedule.is_feasible(new_chromosome):
+                    fitness, details = self.schedule.evaluate_fitness(new_chromosome)
+                    new_chromosome.fitness = fitness
+                    new_chromosome.details = details
+                else:
+                    continue 
+            population.append(new_chromosome)
         return population
 
-    def crossover(self, parent1, parent2):
-            cut1 = random.randint(0, len(parent1.operation_sequence) - 1)
-            cut2 = random.randint(cut1 + 1, len(parent1.operation_sequence))
 
-            child1_seq = [None] * len(parent1.operation_sequence)
-            child1_seq[cut1:cut2] = parent1.operation_sequence[cut1:cut2]
-            
-            parent2_remaining = [x for x in parent2.operation_sequence if x not in child1_seq]
-            child1_seq = [item if item is not None else parent2_remaining.pop(0) for item in child1_seq]
-            
-            child2_seq = [None] * len(parent2.operation_sequence)
-            child2_seq[cut1:cut2] = parent2.operation_sequence[cut1:cut2]
-            
-            parent1_remaining = [x for x in parent1.operation_sequence if x not in child2_seq]
-            child2_seq = [item if item is not None else parent1_remaining.pop(0) for item in child2_seq]
-
-            ap1, ap2 = parent1.assembly_priority, parent2.assembly_priority
-            if len(ap1) > 1:
-                ap_cut = random.randint(1, len(ap1)-1)
-                child1_ap = ap1[:ap_cut] + [x for x in ap2 if x not in ap1[:ap_cut]]
-                child2_ap = ap2[:ap_cut] + [x for x in ap1 if x not in ap2[:ap_cut]]
-            else:
-                child1_ap = ap1[:]
-                child2_ap = ap2[:]
-
-            return Chromosome(child1_seq, child1_ap), Chromosome(child2_seq, child2_ap)
-    
-       
-    def genetic_algorithm(self):
-        population = self.generate_initial_population()
-        best_makespan = float("inf")
-        best_solution = None
-
-        for gen in range(self.generations):
-            scored = []
-            for chrom in population:
-                if self.schedule.is_feasible(chrom):
-                    fitness, details = self.schedule.evaluate_fitness(chrom)
+    def evaluate_population(self, population):
+        for chromosome in population:
+            if chromosome.fitness is None:  # Only evaluate if not already evaluated
+                if self.schedule.is_feasible(chromosome):
+                    fitness, details = self.schedule.evaluate_fitness(chromosome)
+                    chromosome.fitness = fitness
+                    chromosome.details = details
                 else:
-                    fitness, details = float("inf"), {}
-                scored.append((chrom, fitness, details))
+                    chromosome.fitness = float("inf")
+                    chromosome.details = {}
 
-            scored.sort(key=lambda x: x[1])
-            elites = [chrom for chrom, _, _ in scored[:self.elite_size]]
+    def selection(self, population):
+        random_n1 = 0
+        random_n2 = 0
+        while random_n1 == random_n2: 
+            random_n1 = random.randint(0, len(population) - 1)
+            random_n2 = random.randint(0, len(population) - 1)
+        
+        return population[random_n1], population[random_n2]
 
-            if scored[0][1] < best_makespan:
-                best_makespan = scored[0][1]
-                best_solution = scored[0][0]
-                best_solution.details = scored[0][2]
+    def crossover(self, parent1, parent2):
+        cut1 = random.randint(0, len(parent1.operation_sequence) - 1)
+        cut2 = random.randint(cut1 + 1, len(parent1.operation_sequence))
 
-            new_population = elites[:]
-            while len(new_population) < self.pop_size:
-                p1, p2 = random.sample(elites, 2)
-                c1, c2 = self.crossover(p1, p2)
-                new_population.append(c1.mutate(self.mutation_rate))
-                if len(new_population) < self.pop_size:
-                    new_population.append(c2.mutate(self.mutation_rate))
+        child1_seq = [None] * len(parent1.operation_sequence)
+        child1_seq[cut1:cut2] = parent1.operation_sequence[cut1:cut2]
+        
+        parent2_remaining = [x for x in parent2.operation_sequence if x not in child1_seq]
+        child1_seq = [item if item is not None else parent2_remaining.pop(0) for item in child1_seq]
+        
+        child2_seq = [None] * len(parent2.operation_sequence)
+        child2_seq[cut1:cut2] = parent2.operation_sequence[cut1:cut2]
+        
+        parent1_remaining = [x for x in parent1.operation_sequence if x not in child2_seq]
+        child2_seq = [item if item is not None else parent1_remaining.pop(0) for item in child2_seq]
 
-            population = new_population
-            print(f"Generation {gen+1}: Best Makespan = {scored[0][1]:.2f}")
+        ap1, ap2 = parent1.assembly_priority, parent2.assembly_priority
+        if len(ap1) > 1:
+            ap_cut = random.randint(1, len(ap1)-1)
+            child1_ap = ap1[:ap_cut] + [x for x in ap2 if x not in ap1[:ap_cut]]
+            child2_ap = ap2[:ap_cut] + [x for x in ap1 if x not in ap2[:ap_cut]]
+        else:
+            child1_ap = ap1[:]
+            child2_ap = ap2[:]
 
-        return best_solution, best_makespan
+        return Chromosome(child1_seq, child1_ap), Chromosome(child2_seq, child2_ap)
+
+    def genetic_algorithm(self):
+        fitness_function = []
+        gen_index = []
+        logger.info("Stage 1: Initializing population...")
+                
+        population = self.generate_initial_population()
+        
+        logger.info("Stage 2: Evaluating initial fitness...")
+        self.evaluate_population(population)
+        
+        for i, chromosome in enumerate(population):
+            logger.info(f"Chromosome {i + 1}: Fitness = {chromosome.fitness}")
+        population.sort(key=lambda x: x.fitness)  
+        best_chromosome = copy.deepcopy(population[0])  
+        best_makespan = best_chromosome.fitness
+        logger.info(f"Initial best fitness: {best_makespan:.2f}")
+        
+        for generation in range(self.generations):
+            logger.info(f"\n--- Generation {generation + 1} ---")
+
+            fitness_function.append(best_makespan)
+            gen_index.append(generation+1)
+            child_population = []
+            
+            plt.cla()
+            
+            ani = FuncAnimation(plt.gcf(), plt.plot(gen_index, fitness_function, color='blue'), interval=1000)
+            
+
+            while len(child_population) < self.children_size:
+                parent1, parent2 = self.selection(population)
+                child1, child2 = self.crossover(parent1, parent2)
+                
+                child1 = child1.mutate(self.mutation_rate)
+                child2 = child2.mutate(self.mutation_rate)
+                
+                child_population.append(child1)
+                if len(child_population) < self.children_size:
+                    child_population.append(child2)
+            
+            logger.info(f"Evaluating {len(child_population)} offspring...")
+            self.evaluate_population(child_population)
+            
+            child_population.sort(key=lambda x: x.fitness)  
+            
+            for etil in range(self.elite_size):
+                if child_population[etil].fitness < population[-1].fitness:  
+                    population[-1] = copy.deepcopy(child_population[etil])
+                    logger.info(f"Replaced worst (fitness: {population[-1].fitness:.2f}) with child {etil}")
+            
+            population = population[:self.pop_size - self.elite_size] + child_population[:self.elite_size]
+            
+            population.sort(key=lambda x: x.fitness)  
+            
+            current_best = population[0]  
+            if current_best.fitness < best_makespan:
+                best_makespan = current_best.fitness
+                best_chromosome = copy.deepcopy(current_best)
+                logger.info(f"*** New best solution found: {best_makespan:.2f} ***")
+            
+            fitnesses = [chrom.fitness for chrom in population if chrom.fitness != float("inf")]
+            if fitnesses:
+                avg_fitness = sum(fitnesses) / len(fitnesses)
+                logger.info(f"Best: {population[0].fitness:.2f}, Avg: {avg_fitness:.2f}, Worst: {population[-1].fitness:.2f}")
+            else:
+                logger.error("No feasible solutions in population!")
+
+            plt.tight_layout()
+        plt.show()
+
+        logger.info(f"\nFinal best makespan: {best_makespan:.2f}")
+        return best_chromosome, best_makespan

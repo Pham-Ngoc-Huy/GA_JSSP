@@ -17,6 +17,6 @@ asm_time = [5.0]  # Time required for the assembly task
 
 # Genetic algorithm parameters
 generations = 100
-pop_size = 100
-elite_size = 20
+pop_size = 10
+elite_size = 2
 mutation_rate = 0.1

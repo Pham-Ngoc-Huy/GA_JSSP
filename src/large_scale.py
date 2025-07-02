@@ -16,14 +16,8 @@ proc_time = np.array(df_proc)
 asm_time=np.array(df_asm_time)
 depend=np.array(df_depend)
 
-# print(machine)
-# print(qp)
-# print(proc_time)
-# print(asm_time)
-# print(depend)
-
-
 generations = 1000
-pop_size = 150
-elite_size = 20 
-mutation_rate = 1
+pop_size = 15
+elite_size = 3
+mutation_rate = 0.3
+children_size = 8
