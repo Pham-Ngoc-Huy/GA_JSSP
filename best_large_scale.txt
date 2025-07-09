@@ -1,0 +1,436 @@
+Final best makespan: 2990.00
+
+--- Best solution found ---
+Operation Sequence: [(4, 0), (4, 1), (8, 0), (8, 1), (1, 0), (9, 0), (10, 0), (10, 1), (5, 0), (5, 1), (5, 2), (3, 0), (3, 1), (3, 2), (10, 2), (10, 3), (10, 4), (10, 5), (10, 6), (10, 7), (10, 8), (10, 9), (2, 0), (2, 1), (2, 2), (13, 0), (13, 1), (8, 2), (8, 3), (9, 1), (9, 2), (9, 3), (9, 4), (4, 2), (7, 0), (7, 1), (0, 0), (0, 1), (0, 2), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (10, 10), (10, 11), (1, 1), (1, 2), (6, 5), (6, 6), (13, 2), (13, 3), (13, 4), (13, 5), (13, 6), (13, 7), (13, 8), (13, 9), (13, 10), (13, 11), (13, 12), (13, 13), (13, 14), (13, 15), (8, 4), (8, 5), (8, 6), (8, 7), (8, 8), (8, 9), (8, 10), (6, 7), (6, 8), (6, 9), (6, 10), (6, 11), (6, 12), (6, 13), (6, 14), (12, 0), (12, 1), (12, 2), (9, 5), (9, 6), (9, 7), (9, 8), (9, 9), (5, 3), (5, 4), (5, 5), (5, 6), (5, 7), (5, 8), (5, 9), (12, 3), (2, 3), (2, 4), (2, 5), (10, 12), (10, 13), (10, 14), (10, 15), (10, 16), (10, 17), (10, 18), (10, 19), (10, 20), (9, 10), (9, 11), (9, 12), (9, 13), (9, 14), (9, 15), (9, 16), (9, 17), (9, 18), (9, 19), (9, 20), (9, 21), (9, 22), (3, 3), (3, 4), (3, 5), (3, 6), (3, 7), (3, 8), (3, 9), (3, 10), (3, 11), (3, 12), (3, 13), (3, 14), (3, 15), (3, 16), (3, 17), (3, 18), (3, 19), (12, 4), (12, 5), (12, 6), (12, 7), (12, 8), (12, 9), (12, 10), (12, 11), (12, 12), (12, 13), (12, 14), (11, 0), (11, 1), (11, 2), (11, 3), (11, 4), (11, 5), (11, 6), (11, 7), (11, 8), (11, 9), (11, 10), (11, 11), (10, 21), (10, 22), (11, 12), (11, 13), (11, 14), (11, 15), (11, 16), (11, 17), (11, 18), (11, 19), (11, 20), (11, 21), (11, 22), (10, 23), (10, 24), (10, 25), (10, 26), (11, 23), (11, 24), (11, 25), (11, 26), (11, 27), (0, 3), (5, 10), (5, 11), (5, 12), (5, 13), (5, 14), (5, 15), (5, 16), (5, 17), (5, 18), (3, 20), (3, 21), (3, 22), (3, 23), (3, 24), (3, 25), (3, 26), (3, 27), (3, 28), (3, 29), (3, 30), (3, 31), (3, 32), (3, 33), (3, 34), (3, 35), (3, 36), (3, 37), (3, 38), (3, 39), (3, 40), (3, 41), (3, 42), (3, 43), (3, 44), (3, 45), (3, 46), (3, 47), (7, 2), (6, 15), (6, 16), (6, 17), (6, 18), (6, 19), (6, 20), (6, 21), (6, 22), (6, 23), (6, 24), (6, 25), (6, 26), (6, 27), (6, 28), (6, 29), (6, 30), (6, 31), (6, 32), (6, 33), (6, 34), (6, 35), (6, 36), (6, 37), (6, 38), (6, 39), (9, 23), (1, 3), (1, 4), (1, 5), (4, 3), (4, 4), (4, 5), (10, 27), (10, 28), (10, 29), (11, 28), (11, 29), (4, 6), (4, 7), (4, 8), (4, 9), (4, 10), (4, 11), (4, 12), (4, 13), (4, 14), (4, 15), (4, 16), (4, 17), (4, 18), (4, 19), (4, 20), (4, 21), (4, 22), (4, 23), (4, 24), (4, 25), (4, 26), (4, 27), (4, 28), (4, 29), (4, 30), (4, 31), (4, 32), (4, 33), (4, 34), (4, 35), (4, 36), (4, 37), (4, 38), (4, 39), (4, 40), (4, 41), (4, 42), (4, 43), (4, 44), (4, 45), (4, 46), (4, 47), (4, 48), (4, 49), (4, 50), (4, 51), (4, 52), (4, 53), (4, 54), (4, 55), (4, 56), (4, 57), (4, 58), (4, 59), (4, 60), (4, 61), (4, 62), (4, 63), (4, 64), (4, 65), (4, 66), (4, 67), (4, 68), (7, 3), (7, 4), (7, 5), (7, 6), (12, 15), (12, 16), (12, 17), (12, 18), (12, 19), (12, 20), (12, 21), (12, 22), (12, 23), (12, 24), (12, 25), (12, 26), (12, 27), (12, 28), (12, 29), (12, 30), (12, 31), (12, 32), (12, 33), (12, 34), (12, 35), (12, 36), (12, 37), (12, 38), (12, 39), (8, 11), (8, 12), (8, 13), (8, 14), (8, 15), (8, 16), (8, 17), (8, 18), (8, 19), (8, 20), (8, 21), (8, 22), (8, 23), (8, 24), (8, 25), (8, 26), (8, 27), (8, 28), (8, 29), (8, 30), (8, 31), (8, 32), (8, 33), (8, 34), (0, 4), (0, 5), (0, 6), (0, 7)]
+Assembly Priority: [3, 5, 0, 2, 1, 4]
+Best Makespan (Cmax): 2990.00
+
+=== Part Processing Times ===
+Part 0 - Op 0: Start = 32.00, End = 62.00
+Part 0 - Op 1: Start = 62.00, End = 86.00
+Part 0 - Op 2: Start = 86.00, End = 94.00
+Part 0 - Op 3: Start = 334.00, End = 350.00
+Part 0 - Op 4: Start = 744.00, End = 776.00
+Part 0 - Op 5: Start = 1200.00, End = 1208.00
+Part 0 - Op 6: Start = 1208.00, End = 1216.00
+Part 0 - Op 7: Start = 1494.00, End = 1504.00
+  Last operation ends at: 1504.00
+  Inventory time before assembly: 0.00
+
+Part 1 - Op 0: Start = 0.00, End = 8.00
+Part 1 - Op 1: Start = 44.00, End = 50.00
+Part 1 - Op 2: Start = 50.00, End = 72.00
+Part 1 - Op 3: Start = 630.00, End = 650.00
+Part 1 - Op 4: Start = 690.00, End = 702.00
+Part 1 - Op 5: Start = 702.00, End = 744.00
+  Last operation ends at: 744.00
+  Inventory time before assembly: 760.00
+
+Part 2 - Op 0: Start = 18.00, End = 26.00
+Part 2 - Op 1: Start = 26.00, End = 34.00
+Part 2 - Op 2: Start = 34.00, End = 44.00
+Part 2 - Op 3: Start = 44.00, End = 53.00
+Part 2 - Op 4: Start = 53.00, End = 68.00
+Part 2 - Op 5: Start = 72.00, End = 77.00
+  Last operation ends at: 77.00
+  Inventory time before assembly: 1427.00
+
+Part 3 - Op 0: Start = 0.00, End = 32.00
+Part 3 - Op 1: Start = 32.00, End = 52.00
+Part 3 - Op 2: Start = 52.00, End = 62.00
+Part 3 - Op 3: Start = 94.00, End = 108.00
+Part 3 - Op 4: Start = 108.00, End = 114.00
+Part 3 - Op 5: Start = 114.00, End = 124.00
+Part 3 - Op 6: Start = 124.00, End = 130.00
+Part 3 - Op 7: Start = 130.00, End = 136.00
+Part 3 - Op 8: Start = 136.00, End = 140.00
+Part 3 - Op 9: Start = 140.00, End = 154.00
+Part 3 - Op 10: Start = 154.00, End = 174.00
+Part 3 - Op 11: Start = 174.00, End = 188.00
+Part 3 - Op 12: Start = 188.00, End = 200.00
+Part 3 - Op 13: Start = 200.00, End = 216.00
+Part 3 - Op 14: Start = 216.00, End = 256.00
+Part 3 - Op 15: Start = 256.00, End = 292.00
+Part 3 - Op 16: Start = 292.00, End = 312.00
+Part 3 - Op 17: Start = 312.00, End = 318.00
+Part 3 - Op 18: Start = 318.00, End = 324.00
+Part 3 - Op 19: Start = 324.00, End = 334.00
+Part 3 - Op 20: Start = 350.00, End = 368.00
+Part 3 - Op 21: Start = 368.00, End = 374.00
+Part 3 - Op 22: Start = 374.00, End = 382.00
+Part 3 - Op 23: Start = 382.00, End = 390.00
+Part 3 - Op 24: Start = 390.00, End = 396.00
+Part 3 - Op 25: Start = 396.00, End = 466.00
+Part 3 - Op 26: Start = 466.00, End = 476.00
+Part 3 - Op 27: Start = 476.00, End = 510.00
+Part 3 - Op 28: Start = 510.00, End = 518.00
+Part 3 - Op 29: Start = 518.00, End = 528.00
+Part 3 - Op 30: Start = 528.00, End = 532.00
+Part 3 - Op 31: Start = 532.00, End = 546.00
+Part 3 - Op 32: Start = 546.00, End = 552.00
+Part 3 - Op 33: Start = 552.00, End = 564.00
+Part 3 - Op 34: Start = 564.00, End = 570.00
+Part 3 - Op 35: Start = 570.00, End = 586.00
+Part 3 - Op 36: Start = 586.00, End = 614.00
+Part 3 - Op 37: Start = 614.00, End = 622.00
+Part 3 - Op 38: Start = 622.00, End = 630.00
+Part 3 - Op 39: Start = 630.00, End = 644.00
+Part 3 - Op 40: Start = 644.00, End = 650.00
+Part 3 - Op 41: Start = 650.00, End = 656.00
+Part 3 - Op 42: Start = 656.00, End = 660.00
+Part 3 - Op 43: Start = 660.00, End = 666.00
+Part 3 - Op 44: Start = 666.00, End = 670.00
+Part 3 - Op 45: Start = 670.00, End = 674.00
+Part 3 - Op 46: Start = 674.00, End = 684.00
+Part 3 - Op 47: Start = 684.00, End = 690.00
+  Last operation ends at: 690.00
+  Inventory time before assembly: 804.00
+
+Part 4 - Op 0: Start = 0.00, End = 10.00
+Part 4 - Op 1: Start = 10.00, End = 18.00
+Part 4 - Op 2: Start = 18.00, End = 32.00
+Part 4 - Op 3: Start = 68.00, End = 74.00
+Part 4 - Op 4: Start = 74.00, End = 108.00
+Part 4 - Op 5: Start = 108.00, End = 112.00
+Part 4 - Op 6: Start = 112.00, End = 122.00
+Part 4 - Op 7: Start = 122.00, End = 128.00
+Part 4 - Op 8: Start = 128.00, End = 148.00
+Part 4 - Op 9: Start = 148.00, End = 156.00
+Part 4 - Op 10: Start = 156.00, End = 178.00
+Part 4 - Op 11: Start = 178.00, End = 190.00
+Part 4 - Op 12: Start = 190.00, End = 206.00
+Part 4 - Op 13: Start = 206.00, End = 216.00
+Part 4 - Op 14: Start = 216.00, End = 224.00
+Part 4 - Op 15: Start = 224.00, End = 238.00
+Part 4 - Op 16: Start = 238.00, End = 244.00
+Part 4 - Op 17: Start = 244.00, End = 262.00
+Part 4 - Op 18: Start = 262.00, End = 282.00
+Part 4 - Op 19: Start = 282.00, End = 290.00
+Part 4 - Op 20: Start = 290.00, End = 306.00
+Part 4 - Op 21: Start = 306.00, End = 314.00
+Part 4 - Op 22: Start = 314.00, End = 332.00
+Part 4 - Op 23: Start = 332.00, End = 338.00
+Part 4 - Op 24: Start = 650.00, End = 664.00
+Part 4 - Op 25: Start = 664.00, End = 686.00
+Part 4 - Op 26: Start = 686.00, End = 708.00
+Part 4 - Op 27: Start = 708.00, End = 714.00
+Part 4 - Op 28: Start = 714.00, End = 720.00
+Part 4 - Op 29: Start = 720.00, End = 742.00
+Part 4 - Op 30: Start = 742.00, End = 784.00
+Part 4 - Op 31: Start = 784.00, End = 838.00
+Part 4 - Op 32: Start = 838.00, End = 852.00
+Part 4 - Op 33: Start = 852.00, End = 862.00
+Part 4 - Op 34: Start = 862.00, End = 882.00
+Part 4 - Op 35: Start = 882.00, End = 940.00
+Part 4 - Op 36: Start = 940.00, End = 966.00
+Part 4 - Op 37: Start = 966.00, End = 972.00
+Part 4 - Op 38: Start = 972.00, End = 1004.00
+Part 4 - Op 39: Start = 1004.00, End = 1026.00
+Part 4 - Op 40: Start = 1026.00, End = 1046.00
+Part 4 - Op 41: Start = 1046.00, End = 1056.00
+Part 4 - Op 42: Start = 1056.00, End = 1078.00
+Part 4 - Op 43: Start = 1078.00, End = 1104.00
+Part 4 - Op 44: Start = 1104.00, End = 1112.00
+Part 4 - Op 45: Start = 1112.00, End = 1118.00
+Part 4 - Op 46: Start = 1118.00, End = 1126.00
+Part 4 - Op 47: Start = 1126.00, End = 1132.00
+Part 4 - Op 48: Start = 1132.00, End = 1138.00
+Part 4 - Op 49: Start = 1138.00, End = 1146.00
+Part 4 - Op 50: Start = 1146.00, End = 1154.00
+Part 4 - Op 51: Start = 1154.00, End = 1158.00
+Part 4 - Op 52: Start = 1158.00, End = 1166.00
+Part 4 - Op 53: Start = 1166.00, End = 1178.00
+Part 4 - Op 54: Start = 1178.00, End = 1184.00
+Part 4 - Op 55: Start = 1184.00, End = 1200.00
+Part 4 - Op 56: Start = 1200.00, End = 1256.00
+Part 4 - Op 57: Start = 1256.00, End = 1274.00
+Part 4 - Op 58: Start = 1274.00, End = 1290.00
+Part 4 - Op 59: Start = 1290.00, End = 1308.00
+Part 4 - Op 60: Start = 1308.00, End = 1330.00
+Part 4 - Op 61: Start = 1330.00, End = 1354.00
+Part 4 - Op 62: Start = 1354.00, End = 1366.00
+Part 4 - Op 63: Start = 1366.00, End = 1378.00
+Part 4 - Op 64: Start = 1378.00, End = 1392.00
+Part 4 - Op 65: Start = 1392.00, End = 1410.00
+Part 4 - Op 66: Start = 1410.00, End = 1422.00
+Part 4 - Op 67: Start = 1422.00, End = 1448.00
+Part 4 - Op 68: Start = 1448.00, End = 1494.00
+  Last operation ends at: 1494.00
+  Inventory time before assembly: 0.00
+
+Part 5 - Op 0: Start = 0.00, End = 20.00
+Part 5 - Op 1: Start = 20.00, End = 40.00
+Part 5 - Op 2: Start = 40.00, End = 50.00
+Part 5 - Op 3: Start = 50.00, End = 80.00
+Part 5 - Op 4: Start = 80.00, End = 106.00
+Part 5 - Op 5: Start = 106.00, End = 126.00
+Part 5 - Op 6: Start = 126.00, End = 128.00
+Part 5 - Op 7: Start = 128.00, End = 128.00
+Part 5 - Op 8: Start = 128.00, End = 152.00
+Part 5 - Op 9: Start = 152.00, End = 162.00
+Part 5 - Op 10: Start = 162.00, End = 168.00
+Part 5 - Op 11: Start = 168.00, End = 186.00
+Part 5 - Op 12: Start = 186.00, End = 200.00
+Part 5 - Op 13: Start = 200.00, End = 258.00
+Part 5 - Op 14: Start = 258.00, End = 312.00
+Part 5 - Op 15: Start = 312.00, End = 334.00
+Part 5 - Op 16: Start = 334.00, End = 348.00
+Part 5 - Op 17: Start = 348.00, End = 360.00
+Part 5 - Op 18: Start = 360.00, End = 370.00
+  Last operation ends at: 370.00
+  Inventory time before assembly: 0.00
+
+Part 6 - Op 0: Start = 108.00, End = 140.00
+Part 6 - Op 1: Start = 140.00, End = 166.00
+Part 6 - Op 2: Start = 166.00, End = 188.00
+Part 6 - Op 3: Start = 188.00, End = 228.00
+Part 6 - Op 4: Start = 228.00, End = 272.00
+Part 6 - Op 5: Start = 272.00, End = 288.00
+Part 6 - Op 6: Start = 288.00, End = 344.00
+Part 6 - Op 7: Start = 344.00, End = 348.00
+Part 6 - Op 8: Start = 348.00, End = 354.00
+Part 6 - Op 9: Start = 354.00, End = 368.00
+Part 6 - Op 10: Start = 368.00, End = 460.00
+Part 6 - Op 11: Start = 460.00, End = 462.00
+Part 6 - Op 12: Start = 462.00, End = 472.00
+Part 6 - Op 13: Start = 472.00, End = 502.00
+Part 6 - Op 14: Start = 502.00, End = 528.00
+Part 6 - Op 15: Start = 528.00, End = 568.00
+Part 6 - Op 16: Start = 568.00, End = 590.00
+Part 6 - Op 17: Start = 590.00, End = 594.00
+Part 6 - Op 18: Start = 594.00, End = 612.00
+Part 6 - Op 19: Start = 612.00, End = 630.00
+Part 6 - Op 20: Start = 630.00, End = 648.00
+Part 6 - Op 21: Start = 648.00, End = 662.00
+Part 6 - Op 22: Start = 662.00, End = 672.00
+Part 6 - Op 23: Start = 672.00, End = 730.00
+Part 6 - Op 24: Start = 730.00, End = 738.00
+Part 6 - Op 25: Start = 738.00, End = 740.00
+Part 6 - Op 26: Start = 740.00, End = 746.00
+Part 6 - Op 27: Start = 746.00, End = 766.00
+Part 6 - Op 28: Start = 766.00, End = 780.00
+Part 6 - Op 29: Start = 780.00, End = 788.00
+Part 6 - Op 30: Start = 788.00, End = 792.00
+Part 6 - Op 31: Start = 792.00, End = 794.00
+Part 6 - Op 32: Start = 794.00, End = 796.00
+Part 6 - Op 33: Start = 796.00, End = 802.00
+Part 6 - Op 34: Start = 802.00, End = 824.00
+Part 6 - Op 35: Start = 824.00, End = 834.00
+Part 6 - Op 36: Start = 834.00, End = 840.00
+Part 6 - Op 37: Start = 840.00, End = 850.00
+Part 6 - Op 38: Start = 850.00, End = 890.00
+Part 6 - Op 39: Start = 890.00, End = 920.00
+  Last operation ends at: 920.00
+  Inventory time before assembly: 0.00
+
+Part 7 - Op 0: Start = 0.00, End = 76.00
+Part 7 - Op 1: Start = 76.00, End = 108.00
+Part 7 - Op 2: Start = 166.00, End = 186.00
+Part 7 - Op 3: Start = 186.00, End = 204.00
+Part 7 - Op 4: Start = 204.00, End = 218.00
+Part 7 - Op 5: Start = 218.00, End = 234.00
+Part 7 - Op 6: Start = 234.00, End = 244.00
+  Last operation ends at: 244.00
+  Inventory time before assembly: 676.00
+
+Part 8 - Op 0: Start = 0.00, End = 56.00
+Part 8 - Op 1: Start = 56.00, End = 62.00
+Part 8 - Op 2: Start = 62.00, End = 68.00
+Part 8 - Op 3: Start = 68.00, End = 80.00
+Part 8 - Op 4: Start = 80.00, End = 192.00
+Part 8 - Op 5: Start = 192.00, End = 204.00
+Part 8 - Op 6: Start = 204.00, End = 208.00
+Part 8 - Op 7: Start = 208.00, End = 214.00
+Part 8 - Op 8: Start = 214.00, End = 238.00
+Part 8 - Op 9: Start = 238.00, End = 266.00
+Part 8 - Op 10: Start = 266.00, End = 272.00
+Part 8 - Op 11: Start = 272.00, End = 292.00
+Part 8 - Op 12: Start = 292.00, End = 312.00
+Part 8 - Op 13: Start = 312.00, End = 352.00
+Part 8 - Op 14: Start = 352.00, End = 376.00
+Part 8 - Op 15: Start = 376.00, End = 394.00
+Part 8 - Op 16: Start = 394.00, End = 418.00
+Part 8 - Op 17: Start = 418.00, End = 462.00
+Part 8 - Op 18: Start = 462.00, End = 516.00
+Part 8 - Op 19: Start = 516.00, End = 570.00
+Part 8 - Op 20: Start = 570.00, End = 584.00
+Part 8 - Op 21: Start = 584.00, End = 590.00
+Part 8 - Op 22: Start = 590.00, End = 596.00
+Part 8 - Op 23: Start = 596.00, End = 616.00
+Part 8 - Op 24: Start = 616.00, End = 628.00
+Part 8 - Op 25: Start = 628.00, End = 644.00
+Part 8 - Op 26: Start = 644.00, End = 656.00
+Part 8 - Op 27: Start = 656.00, End = 664.00
+Part 8 - Op 28: Start = 664.00, End = 770.00
+Part 8 - Op 29: Start = 770.00, End = 810.00
+Part 8 - Op 30: Start = 810.00, End = 862.00
+Part 8 - Op 31: Start = 862.00, End = 866.00
+Part 8 - Op 32: Start = 866.00, End = 870.00
+Part 8 - Op 33: Start = 870.00, End = 888.00
+Part 8 - Op 34: Start = 888.00, End = 916.00
+  Last operation ends at: 916.00
+  Inventory time before assembly: 4.00
+
+Part 9 - Op 0: Start = 0.00, End = 38.00
+Part 9 - Op 1: Start = 38.00, End = 50.00
+Part 9 - Op 2: Start = 50.00, End = 78.00
+Part 9 - Op 3: Start = 78.00, End = 88.00
+Part 9 - Op 4: Start = 88.00, End = 120.00
+Part 9 - Op 5: Start = 120.00, End = 210.00
+Part 9 - Op 6: Start = 210.00, End = 216.00
+Part 9 - Op 7: Start = 216.00, End = 242.00
+Part 9 - Op 8: Start = 242.00, End = 294.00
+Part 9 - Op 9: Start = 294.00, End = 298.00
+Part 9 - Op 10: Start = 298.00, End = 330.00
+Part 9 - Op 11: Start = 330.00, End = 356.00
+Part 9 - Op 12: Start = 356.00, End = 390.00
+Part 9 - Op 13: Start = 392.00, End = 482.00
+Part 9 - Op 14: Start = 482.00, End = 490.00
+Part 9 - Op 15: Start = 490.00, End = 510.00
+Part 9 - Op 16: Start = 510.00, End = 542.00
+Part 9 - Op 17: Start = 542.00, End = 554.00
+Part 9 - Op 18: Start = 554.00, End = 586.00
+Part 9 - Op 19: Start = 586.00, End = 632.00
+Part 9 - Op 20: Start = 632.00, End = 636.00
+Part 9 - Op 21: Start = 636.00, End = 652.00
+Part 9 - Op 22: Start = 652.00, End = 678.00
+Part 9 - Op 23: Start = 1130.00, End = 1170.00
+  Last operation ends at: 1170.00
+  Inventory time before assembly: 156.00
+
+Part 10 - Op 0: Start = 0.00, End = 22.00
+Part 10 - Op 1: Start = 22.00, End = 32.00
+Part 10 - Op 2: Start = 32.00, End = 40.00
+Part 10 - Op 3: Start = 40.00, End = 56.00
+Part 10 - Op 4: Start = 56.00, End = 62.00
+Part 10 - Op 5: Start = 62.00, End = 106.00
+Part 10 - Op 6: Start = 106.00, End = 114.00
+Part 10 - Op 7: Start = 114.00, End = 138.00
+Part 10 - Op 8: Start = 138.00, End = 160.00
+Part 10 - Op 9: Start = 160.00, End = 192.00
+Part 10 - Op 10: Start = 192.00, End = 206.00
+Part 10 - Op 11: Start = 206.00, End = 210.00
+Part 10 - Op 12: Start = 216.00, End = 232.00
+Part 10 - Op 13: Start = 232.00, End = 250.00
+Part 10 - Op 14: Start = 250.00, End = 268.00
+Part 10 - Op 15: Start = 268.00, End = 272.00
+Part 10 - Op 16: Start = 272.00, End = 306.00
+Part 10 - Op 17: Start = 306.00, End = 340.00
+Part 10 - Op 18: Start = 340.00, End = 352.00
+Part 10 - Op 19: Start = 352.00, End = 380.00
+Part 10 - Op 20: Start = 380.00, End = 392.00
+Part 10 - Op 21: Start = 678.00, End = 684.00
+Part 10 - Op 22: Start = 684.00, End = 722.00
+Part 10 - Op 23: Start = 722.00, End = 784.00
+Part 10 - Op 24: Start = 942.00, End = 990.00
+Part 10 - Op 25: Start = 990.00, End = 1024.00
+Part 10 - Op 26: Start = 1024.00, End = 1036.00
+Part 10 - Op 27: Start = 1140.00, End = 1150.00
+Part 10 - Op 28: Start = 1170.00, End = 1234.00
+Part 10 - Op 29: Start = 1234.00, End = 1248.00
+  Last operation ends at: 1248.00
+  Inventory time before assembly: 78.00
+
+Part 11 - Op 0: Start = 390.00, End = 412.00
+Part 11 - Op 1: Start = 412.00, End = 422.00
+Part 11 - Op 2: Start = 422.00, End = 430.00
+Part 11 - Op 3: Start = 430.00, End = 446.00
+Part 11 - Op 4: Start = 446.00, End = 452.00
+Part 11 - Op 5: Start = 452.00, End = 496.00
+Part 11 - Op 6: Start = 496.00, End = 504.00
+Part 11 - Op 7: Start = 504.00, End = 528.00
+Part 11 - Op 8: Start = 528.00, End = 550.00
+Part 11 - Op 9: Start = 550.00, End = 582.00
+Part 11 - Op 10: Start = 582.00, End = 596.00
+Part 11 - Op 11: Start = 596.00, End = 600.00
+Part 11 - Op 12: Start = 722.00, End = 738.00
+Part 11 - Op 13: Start = 738.00, End = 756.00
+Part 11 - Op 14: Start = 756.00, End = 774.00
+Part 11 - Op 15: Start = 774.00, End = 778.00
+Part 11 - Op 16: Start = 778.00, End = 812.00
+Part 11 - Op 17: Start = 812.00, End = 846.00
+Part 11 - Op 18: Start = 846.00, End = 858.00
+Part 11 - Op 19: Start = 858.00, End = 886.00
+Part 11 - Op 20: Start = 886.00, End = 898.00
+Part 11 - Op 21: Start = 898.00, End = 904.00
+Part 11 - Op 22: Start = 904.00, End = 942.00
+Part 11 - Op 23: Start = 942.00, End = 1004.00
+Part 11 - Op 24: Start = 1036.00, End = 1084.00
+Part 11 - Op 25: Start = 1084.00, End = 1118.00
+Part 11 - Op 26: Start = 1118.00, End = 1130.00
+Part 11 - Op 27: Start = 1130.00, End = 1140.00
+Part 11 - Op 28: Start = 1248.00, End = 1312.00
+Part 11 - Op 29: Start = 1312.00, End = 1326.00
+  Last operation ends at: 1326.00
+  Inventory time before assembly: 0.00
+
+Part 12 - Op 0: Start = 58.00, End = 72.00
+Part 12 - Op 1: Start = 72.00, End = 88.00
+Part 12 - Op 2: Start = 88.00, End = 96.00
+Part 12 - Op 3: Start = 96.00, End = 122.00
+Part 12 - Op 4: Start = 180.00, End = 198.00
+Part 12 - Op 5: Start = 198.00, End = 206.00
+Part 12 - Op 6: Start = 206.00, End = 216.00
+Part 12 - Op 7: Start = 216.00, End = 221.00
+Part 12 - Op 8: Start = 221.00, End = 225.00
+Part 12 - Op 9: Start = 225.00, End = 241.00
+Part 12 - Op 10: Start = 241.00, End = 247.00
+Part 12 - Op 11: Start = 247.00, End = 257.00
+Part 12 - Op 12: Start = 257.00, End = 267.00
+Part 12 - Op 13: Start = 267.00, End = 275.00
+Part 12 - Op 14: Start = 275.00, End = 281.00
+Part 12 - Op 15: Start = 281.00, End = 287.00
+Part 12 - Op 16: Start = 287.00, End = 291.00
+Part 12 - Op 17: Start = 291.00, End = 297.00
+Part 12 - Op 18: Start = 297.00, End = 305.00
+Part 12 - Op 19: Start = 305.00, End = 309.00
+Part 12 - Op 20: Start = 309.00, End = 313.00
+Part 12 - Op 21: Start = 313.00, End = 319.00
+Part 12 - Op 22: Start = 319.00, End = 331.00
+Part 12 - Op 23: Start = 331.00, End = 351.00
+Part 12 - Op 24: Start = 351.00, End = 359.00
+Part 12 - Op 25: Start = 359.00, End = 371.00
+Part 12 - Op 26: Start = 371.00, End = 381.00
+Part 12 - Op 27: Start = 381.00, End = 391.00
+Part 12 - Op 28: Start = 391.00, End = 405.00
+Part 12 - Op 29: Start = 405.00, End = 415.00
+Part 12 - Op 30: Start = 415.00, End = 423.00
+Part 12 - Op 31: Start = 423.00, End = 455.00
+Part 12 - Op 32: Start = 455.00, End = 463.00
+Part 12 - Op 33: Start = 463.00, End = 473.00
+Part 12 - Op 34: Start = 473.00, End = 479.00
+Part 12 - Op 35: Start = 479.00, End = 487.00
+Part 12 - Op 36: Start = 487.00, End = 493.00
+Part 12 - Op 37: Start = 493.00, End = 499.00
+Part 12 - Op 38: Start = 499.00, End = 503.00
+Part 12 - Op 39: Start = 503.00, End = 523.00
+  Last operation ends at: 523.00
+  Inventory time before assembly: 0.00
+
+Part 13 - Op 0: Start = 0.00, End = 4.00
+Part 13 - Op 1: Start = 4.00, End = 48.00
+Part 13 - Op 2: Start = 48.00, End = 52.00
+Part 13 - Op 3: Start = 52.00, End = 58.00
+Part 13 - Op 4: Start = 58.00, End = 66.00
+Part 13 - Op 5: Start = 66.00, End = 74.00
+Part 13 - Op 6: Start = 74.00, End = 82.00
+Part 13 - Op 7: Start = 82.00, End = 96.00
+Part 13 - Op 8: Start = 96.00, End = 108.00
+Part 13 - Op 9: Start = 108.00, End = 112.00
+Part 13 - Op 10: Start = 112.00, End = 118.00
+Part 13 - Op 11: Start = 118.00, End = 130.00
+Part 13 - Op 12: Start = 130.00, End = 158.00
+Part 13 - Op 13: Start = 158.00, End = 164.00
+Part 13 - Op 14: Start = 164.00, End = 176.00
+Part 13 - Op 15: Start = 176.00, End = 180.00
+  Last operation ends at: 180.00
+  Inventory time before assembly: 343.00
+
+=== Assembly Times ===
+Assembly 0: Start = 1504.00, End = 1665.00
+Assembly 1: Start = 1494.00, End = 2866.00
+Assembly 2: Start = 370.00, End = 698.00
+Assembly 3: Start = 920.00, End = 2632.00
+Assembly 4: Start = 1326.00, End = 2990.00
+Assembly 5: Start = 523.00, End = 1040.00
+Elapsed time for calculation: 519.264896 seconds

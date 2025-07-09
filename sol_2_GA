@@ -1,0 +1,89 @@
+Generation 3: Best Makespan = 25.00
+Generation 4: Best Makespan = 24.50
+Generation 5: Best Makespan = 23.50
+Generation 6: Best Makespan = 23.50
+Generation 7: Best Makespan = 23.50
+Generation 8: Best Makespan = 23.50
+Generation 9: Best Makespan = 23.50
+Generation 10: Best Makespan = 23.50
+Generation 11: Best Makespan = 23.50
+Generation 12: Best Makespan = 23.50
+Generation 13: Best Makespan = 23.50
+Generation 14: Best Makespan = 23.50
+Generation 15: Best Makespan = 23.50
+Generation 16: Best Makespan = 23.50
+Generation 17: Best Makespan = 23.50
+Generation 18: Best Makespan = 23.50
+Generation 19: Best Makespan = 23.50
+Generation 20: Best Makespan = 23.50
+Generation 21: Best Makespan = 23.50
+Generation 22: Best Makespan = 23.50
+Generation 23: Best Makespan = 23.50
+Generation 24: Best Makespan = 23.50
+Generation 25: Best Makespan = 23.50
+Generation 26: Best Makespan = 23.50
+Generation 27: Best Makespan = 23.50
+Generation 28: Best Makespan = 23.50
+Generation 29: Best Makespan = 23.50
+Generation 30: Best Makespan = 23.50
+Generation 31: Best Makespan = 23.50
+Generation 32: Best Makespan = 23.50
+Generation 33: Best Makespan = 23.50
+Generation 34: Best Makespan = 23.50
+Generation 35: Best Makespan = 23.50
+Generation 36: Best Makespan = 23.50
+Generation 37: Best Makespan = 23.50
+Generation 38: Best Makespan = 23.50
+Generation 39: Best Makespan = 23.50
+Generation 40: Best Makespan = 23.50
+Generation 41: Best Makespan = 23.50
+Generation 42: Best Makespan = 23.50
+Generation 43: Best Makespan = 23.50
+Generation 44: Best Makespan = 23.50
+Generation 45: Best Makespan = 23.50
+Generation 46: Best Makespan = 23.50
+Generation 47: Best Makespan = 23.50
+Generation 48: Best Makespan = 23.50
+Generation 49: Best Makespan = 23.50
+Generation 50: Best Makespan = 23.50
+
+--- Best solution found ---
+Operation Sequence: [(1, 0), (3, 0), (0, 0), (2, 0), (2, 1), (2, 2), (0, 1), (2, 3), (4, 0), (4, 1), (4, 2), (1, 1), (1, 2), (3, 1)]
+Assembly Priority: [2, 1, 0]
+Best Makespan (Cmax): 23.50
+
+=== Part Processing Times ===
+Part 0 - Op 0: Start = 0.00, End = 3.00
+Part 0 - Op 1: Start = 5.00, End = 10.00
+  Last operation ends at: 10.00
+  Inventory time before assembly: 7.50
+
+Part 1 - Op 0: Start = 0.00, End = 2.00
+Part 1 - Op 1: Start = 10.00, End = 14.00
+Part 1 - Op 2: Start = 15.50, End = 16.50
+  Last operation ends at: 16.50
+  Inventory time before assembly: 1.00
+
+Part 2 - Op 0: Start = 0.00, End = 4.00
+Part 2 - Op 1: Start = 4.00, End = 7.00
+Part 2 - Op 2: Start = 7.00, End = 9.00
+Part 2 - Op 3: Start = 10.00, End = 14.00
+  Last operation ends at: 14.00
+  Inventory time before assembly: 2.50
+
+Part 3 - Op 0: Start = 0.00, End = 5.00
+Part 3 - Op 1: Start = 14.00, End = 17.50
+  Last operation ends at: 17.50
+  Inventory time before assembly: 0.00
+
+Part 4 - Op 0: Start = 4.00, End = 10.00
+Part 4 - Op 1: Start = 10.00, End = 12.50
+Part 4 - Op 2: Start = 12.50, End = 15.50
+  Last operation ends at: 15.50
+  Inventory time before assembly: 1.00
+
+=== Assembly Times ===
+Assembly 0: Start = 17.50, End = 23.50
+Assembly 1: Start = 16.50, End = 21.00
+Assembly 2: Start = 15.50, End = 22.50
+Elapsed time for calculation: 0.339268 seconds

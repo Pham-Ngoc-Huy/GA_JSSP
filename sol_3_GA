@@ -1,0 +1,25 @@
+--- Best solution found ---
+Operation Sequence: [(1, 0), (0, 0), (0, 1), (1, 1), (2, 0), (0, 2), (2, 1), (2, 2)]
+Assembly Priority: [0]
+Best Makespan (Cmax): 16.00
+
+=== Part Processing Times ===
+Part 0 - Op 0: Start = 0.00, End = 3.00
+Part 0 - Op 1: Start = 3.00, End = 5.00
+Part 0 - Op 2: Start = 6.00, End = 8.00
+  Last operation ends at: 8.00
+  Inventory time before assembly: 3.00
+
+Part 1 - Op 0: Start = 0.00, End = 2.00
+Part 1 - Op 1: Start = 5.00, End = 9.00
+  Last operation ends at: 9.00
+  Inventory time before assembly: 2.00
+
+Part 2 - Op 0: Start = 2.00, End = 6.00
+Part 2 - Op 1: Start = 6.00, End = 9.00
+Part 2 - Op 2: Start = 9.00, End = 11.00
+  Last operation ends at: 11.00
+  Inventory time before assembly: 0.00
+
+=== Assembly Times ===
+Assembly 0: Start = 11.00, End = 16.00
